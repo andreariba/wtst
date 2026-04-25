@@ -1,8 +1,8 @@
 services:
   mqtt-monitor:
     build:
-      context: ./src
-      dockerfile: Dockerfile
+      # context: ./src
+      dockerfile: ./src/Dockerfile
     container_name: mqtt-monitor
     restart: unless-stopped          # auto-restart on crash or reboot
     environment:
