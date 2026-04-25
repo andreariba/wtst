@@ -16,7 +16,6 @@ MQTT_TOPIC = "home/sniffers"
 
 # Database URL
 DB_URL = os.getenv("DB_URL")
-# DB_URL = "postgresql://aragorn:aragorndb@aragorndb.home:5432/wsts"
 print(DB_URL)
 
 # --- DATABASE SETUP ---

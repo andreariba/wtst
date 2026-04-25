@@ -1,0 +1,15 @@
+services:
+  mqtt-monitor:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    container_name: mqtt-monitor
+    restart: unless-stopped          # auto-restart on crash or reboot
+    environment:
+      DB_URL: ${DB_URL}              # pass from your .env or shell
+    network_mode: host               # needed to reach 192.168.1.100 (LAN broker)
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
