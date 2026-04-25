@@ -1,0 +1,20 @@
+
+# docker run -it -p 1883:1883 -p 9001:9001 -v mosquito:/mosquitto/config/mosquitto.conf eclipse-mosquitto
+
+version: '3'
+
+services:
+  mqtt:
+    container_name: mosquitto
+    image: eclipse-mosquitto:latest
+    user: root
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./config:/mosquitto/config
+      - ./logs:/mosquitto/log
+      - ./data:/mosquitto/data
+    restart: always
+    environment:
+      - TZ=Europe/Rome
